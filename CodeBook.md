@@ -1,3 +1,6 @@
+DATA DICTIONARY - HUMAN ACTIVITY RECOGNITION
+=============================================
+
 "x"
 "1" "Subject"
 "2" "Activity"
