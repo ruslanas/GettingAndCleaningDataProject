@@ -1,7 +1,7 @@
 Code Book
 ======================================================================
 
-Signals were taken from accelerometer and gyroscope on the waist of test subjects while
+Signals were taken from accelerometer and gyroscope on the waist of test subject while
 performing various activities.
 
 Below you can see a list of all the features in the table produced by script.
