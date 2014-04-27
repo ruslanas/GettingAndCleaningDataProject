@@ -6,13 +6,12 @@ if(!file.exists(dest)) {
     
     download.file(url, dest)
     
-    unzip(dest)
-    
-    # print zip content
-    files <- unzip(dest, list=TRUE)
-    print(files$Name)
-    
 }
+
+unzip(dest)
+
+# extract files
+unzip(dest, list=TRUE)
 
 # read feature names and actity labels
 features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors=FALSE)
