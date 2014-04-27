@@ -8,10 +8,8 @@ if(!file.exists(dest)) {
     
 }
 
-unzip(dest)
-
 # extract files
-unzip(dest, list=TRUE)
+unzip(dest)
 
 # read feature names and actity labels
 features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors=FALSE)
