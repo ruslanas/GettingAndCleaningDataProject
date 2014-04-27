@@ -18,7 +18,7 @@ if(!file.exists(dest)) {
 features <- read.table("UCI HAR Dataset/features.txt", stringsAsFactors=FALSE)
 activity_labels <- read.table("UCI HAR Dataset/activity_labels.txt")
 
-mainDf <- data.frame()
+combinedDf <- data.frame()
 
 dirs <- c("test", "train")
 for(d in dirs) {
@@ -28,7 +28,7 @@ for(d in dirs) {
     setLabels <- paste("y_", d, ".txt", sep="")
     subjectFile <- paste("subject_", d, ".txt", sep="")
     
-    # read values. Split by any number of consecutive white spaces.
+    # read values.
     df <- read.table(paste(currDir, setName, sep="/"))
     
     names(df) <- features$V2
@@ -47,11 +47,12 @@ for(d in dirs) {
     names(activities) <- c("AID", "Activity")
     df <- cbind(subjects, activities, df)
     
-    mainDf <- rbind(mainDf, df)
+    combinedDf <- rbind(combinedDf, df)
 }
 
 require('reshape2')
 
-df.m <- melt(mainDf, id.vars=c('Subject', 'Activity'))
-df.c <- dcast(df.m, Subject + Activity ~ variable, fun.aggregate=mean)
+df.m <- melt(combinedDf, id.vars=c('Subject', 'Activity'))
+tidy <- dcast(df.m, Subject + Activity ~ variable, fun.aggregate=mean)
 
+write.csv(tidy, 'HAR_tidy.csv')

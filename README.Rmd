@@ -1,11 +1,32 @@
-Human Activity Recognition Using Smartphones Dataset
-========================================================
+Human Activity Recognition Using Smartphones Dataset - Getting and Cleaning
+=========================================================================
+
+Script downloads HAR dataset [1] from server, extracts files, combines test and
+train data into one tidy data frame with average values for all mean and standard
+deviation features grouped by test subject and activity. Resulting data is written
+to HAR_tidy.csv file.
+
+See [CodeBook](CodeBook.md) for feature description. Important steps described
+in script comments.
+
+Download and extract zip file or clone in your working directory. Run as shell script
+
+```{shell}
+R -f run_analysis.R
+```
+
+or run in R environment as shown below.
 
 ```{r}
 # load and run script
 source('run_analysis.R')
 
-# display sample
-summary(df.c)
+# display summary
+summary(tidy)
 ```
 
+[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
+
+This dataset is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
+
+Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.
