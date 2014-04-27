@@ -1,0 +1,11 @@
+Human Activity Recognition Using Smartphones Dataset
+========================================================
+
+```{r}
+# load and run script
+source('run_analysis.R')
+
+# display sample
+summary(df.c)
+```
+
